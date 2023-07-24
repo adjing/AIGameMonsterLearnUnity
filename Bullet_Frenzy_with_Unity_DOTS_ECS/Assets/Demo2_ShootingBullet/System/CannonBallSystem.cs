@@ -6,31 +6,32 @@ using UnityEngine;
 
 namespace AIGameMonster.Tanks
 {
-    [BurstCompile]
-    partial struct CannonBallSystem : ISystem
+    [BurstCompile] // 使用 Burst 编译器编译此结构体
+    partial struct CannonBallSystem : ISystem // 定义一个名为 CannonBallSystem 的部分结构体，它实现了 ISystem 接口
     {
-        [BurstCompile]
-        public void OnCreate(ref SystemState state)
+        [BurstCompile] // 使用 Burst 编译器编译此方法
+        public void OnCreate(ref SystemState state) // 定义 OnCreate 方法，它在系统创建时被调用
         {
-            state.RequireForUpdate<CannonBall>();
+            state.RequireForUpdate<CannonBall>(); // 指定此系统仅在存在 CannonBall 组件时才会更新
         }
 
-        [BurstCompile]
-        public void OnUpdate(ref SystemState state)
+        [BurstCompile] // 使用 Burst 编译器编译此方法
+        public void OnUpdate(ref SystemState state) // 定义 OnUpdate 方法，它在每一帧中被调用
         {
-            var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>(); // 获取 EndSimulationEntityCommandBufferSystem 的单例
 
-            var cannonBallJob = new CannonBallJob
+            var cannonBallJob = new CannonBallJob // 定义一个名为 cannonBallJob 的 CannonBallJob 实例
             {
-                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged),
-                DeltaTime = SystemAPI.Time.DeltaTime,
-                MaxDistance = 30,
-                Speed= 30,
+                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged), // 设置 ECB 属性为 EndSimulationEntityCommandBufferSystem 的命令缓冲区
+                DeltaTime = SystemAPI.Time.DeltaTime, // 设置 DeltaTime 属性为当前帧的时间增量
+                MaxDistance = 30, // 设置 MaxDistance 属性为 30
+                Speed = 30, // 设置 Speed 属性为 30
             };
 
-            cannonBallJob.Schedule();
+            cannonBallJob.Schedule(); // 调度 cannonBallJob 以执行
         }
     }
+
 
     // IJobEntity relies on source generation to implicitly define a query from the signature of the Execute function.
     [BurstCompile]

@@ -214,7 +214,6 @@ GameObject:
   - component: {fileID: 777998865}
   - component: {fileID: 777998864}
   - component: {fileID: 777998863}
-  - component: {fileID: 777998867}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -302,25 +301,13 @@ Transform:
   m_GameObject: {fileID: 777998862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.08, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1630959621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &777998867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777998862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d983dcea1ee03242b6c1ce98b5da78d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1480680119
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,14 +452,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630959620}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37935263, y: -0.121629514, z: 0.05038059, w: 0.9158383}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1535999216}
   m_Father: {fileID: 777998866}
-  m_LocalEulerAnglesHint: {x: 45, y: -15.13, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!135 &1630959622
 SphereCollider:
   m_ObjectHideFlags: 0
